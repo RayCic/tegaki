@@ -19,6 +19,7 @@
 # Contributors to this file:
 # - Mathieu Blondel
 
+from __future__ import print_function
 import cStringIO
 import gzip as gzipm
 try:
@@ -139,4 +140,4 @@ if __name__ == "__main__":
 #         chardict = pickle.load(file("dag.pp"))
 
     chardict = CharacterStrokeDictionary(sys.argv[1])
-    print chardict.to_dag().tree()
+    print(chardict.to_dag().tree())

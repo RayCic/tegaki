@@ -19,6 +19,7 @@
 # Contributors to this file:
 # - Mathieu Blondel
 
+from __future__ import print_function
 import glob
 import os
 import imp
@@ -269,7 +270,7 @@ if __name__ == "__main__":
     writing = char.get_writing() 
 
     recognizers = Recognizer.get_available_recognizers()
-    print "Available recognizers", recognizers
+    print("Available recognizers", recognizers)
 
     if not recognizer in recognizers:
         raise Exception, "Not an available recognizer"
@@ -278,11 +279,11 @@ if __name__ == "__main__":
     recognizer = recognizer_klass()
 
     models = recognizer_klass.get_available_models()
-    print "Available models", models
+    print("Available models", models)
 
     if not model in models:
         raise Exception, "Not an available model"
 
     recognizer.set_model(model)
 
-    print recognizer.recognize(writing)
+    print(recognizer.recognize(writing))

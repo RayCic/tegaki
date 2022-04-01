@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 import os
 import codecs
 import xml.sax
@@ -42,10 +43,9 @@ for kanji in kanjis:
  
 
 
-print >> sys.stderr, "n strokes", len(sdict_v)
-print >> sys.stderr, "n strokes (without variants)", len(sdict)
-print >> sys.stderr, "n characters", len(kdict)
+print("n strokes", len(sdict_v), file=sys.stderr)
+print("n strokes (without variants)", len(sdict), file=sys.stderr)
+print("n characters", len(kdict), file=sys.stderr)
 
 for utf8 in sorted(kdict.keys()):
-    print "%s\t%s" % (utf8, " ".join(kdict[utf8]))
-
+    print("%s\t%s" % (utf8, " ".join(kdict[utf8])))

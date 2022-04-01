@@ -27,6 +27,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 """
 
+from __future__ import print_function
 import urllib
 import codecs
 import sys
@@ -111,16 +112,16 @@ def get_data_set_iterator(name):
 
 def main():
     if len(sys.argv) != 2:
-        print """usage: python characterdb.py LANG
+        print ("""usage: python characterdb.py LANG
 Exports a list of stroke orders from characterdb.cjklib.org and prints a
 CSV list to stdout.
 
-Available languages:"""
-        print "\n".join(('  ' + name) for name in DATA_SETS.keys())
+Available languages:""")
+        print ("\n".join(('  ' + name) for name in DATA_SETS.keys()))
         sys.exit(1)
 
     for a in get_data_set_iterator(sys.argv[1]):
-        print '\t'.join(cell for cell in a).encode('utf8')
+        print('\t'.join(cell for cell in a).encode('utf8'))
 
 
 if __name__ == "__main__":

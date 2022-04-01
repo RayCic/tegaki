@@ -15,6 +15,7 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from __future__ import print_function
 import xml.sax.handler
 
 class BasicHandler(xml.sax.handler.ContentHandler):
@@ -202,7 +203,7 @@ class KanjisHandler(BasicHandler):
 
 	def handle_end_kanji(self):
 		if len(self.groups) != 0:
-			print "WARNING: stroke groups remaining after reading kanji!"
+			print("WARNING: stroke groups remaining after reading kanji!")
 		self.currentKanji = None
 		self.groups = []
 
@@ -229,7 +230,7 @@ class KanjisHandler(BasicHandler):
 		group = self.groups.pop()
 		if len(self.groups) == 0:
 			if self.currentKanji.root:
-				print "WARNING: overwriting root of kanji!"
+				print("WARNING: overwriting root of kanji!")
 			self.currentKanji.root = group
 
 	def handle_start_stroke(self, attrs):

@@ -23,6 +23,7 @@
 Directed Acyclic Graph
 """
 
+from __future__ import print_function
 from dictutils import *
 
 class Node(object):
@@ -268,15 +269,15 @@ if __name__ == "__main__":
     root.set_child_nodes([node1, node2, node3])
 
     def print_and_assert(prefix, got, expected):
-        print prefix
+        print(prefix)
         try:
             assert(got == expected)
-            print got
+            print(got)
         except AssertionError:
-            print "got: ", got
-            print "but expected: ", expected
+            print("got: ", got)
+            print("but expected: ", expected)
 
-    print "tree:\n", root.tree()
+    print("tree:\n", root.tree())
 
     print_and_assert("depth-first",
         [(n.get_value(), d) for n,d in list(root.depth_first_search())],
@@ -288,10 +289,10 @@ if __name__ == "__main__":
         [None, 1, 2, 3, 4, 5, 6, 9, 7, 8])
 
     depth1_nodes = Node.child_nodes_all([root])
-    print "child nodes of root: ", depth1_nodes
+    print("child nodes of root: ", depth1_nodes)
 
-    print "parent of parent of 8: ", node8.get_parent_nodes()[0].get_parent_nodes()[0]
-    print "generative sequence of 8: ", node8.get_generative_sequence()
+    print("parent of parent of 8: ", node8.get_parent_nodes()[0].get_parent_nodes()[0])
+    print("generative sequence of 8: ", node8.get_generative_sequence())
 
     assert(node8.get_depth() == 0)
     assert(node6.get_depth() == 0)
@@ -305,13 +306,13 @@ if __name__ == "__main__":
     assert(node2.get_depth() == 1)
     assert(root.get_depth() == 0)
 
-    print "depth-first search with args"
+    print("depth-first search with args")
     it = root.depth_first_search_args(0)
     for node, depth, visited, args in it:
-        print node, depth, visited, args
+        print(node, depth, visited, args)
         it.send(((args[0]+1,),True))
 
-    print "depth-first search unique"
+    print("depth-first search unique")
     it = root.depth_first_search_unique()
     for node, depth in it:
-        print node, depth
+        print(node, depth)
