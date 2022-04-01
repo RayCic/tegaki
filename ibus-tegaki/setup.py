@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from __future__ import print_function
 from distutils.core import setup
 from distutils.command.install import install as installbase
 import os
@@ -45,7 +46,7 @@ class install(installbase):
         out = os.path.join(outdir, filename.replace(".in", ""))
         if not os.path.exists(outdir):
             os.makedirs(outdir)
-        print "Writing", out
+        print("Writing", out)
         save_file(out, txt)
         os.chmod(out, mode)
 
