@@ -19,6 +19,7 @@
 # Contributors to this file:
 # - Mathieu Blondel
 
+from __future__ import print_function
 import gtk
 from gtk import gdk
 import gobject
@@ -477,9 +478,9 @@ if __name__ == "__main__":
 
 
     def on_selected(widget, event):
-        print "char_selected", chartable.get_selected()
-        print "ev button", event.button
-        print "ev time", event.time
+        print("char_selected", chartable.get_selected())
+        print("ev button", event.button)
+        print("ev time", event.time)
        
     chartable.connect("character-selected", on_selected)
 

@@ -19,6 +19,7 @@
 # Contributors to this file:
 # - Mathieu Blondel
 
+from __future__ import print_function
 import os
 from ConfigParser import SafeConfigParser, NoSectionError, NoOptionError
 
@@ -871,7 +872,7 @@ if __name__ == "__main__":
         recognizer_widget = SmartRecognizerWidget()
 
     def on_commit_string(rw, string):
-        print string
+        print(string)
 
     recognizer_widget.connect("commit-string", on_commit_string)
 

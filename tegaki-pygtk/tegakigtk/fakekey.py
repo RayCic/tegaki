@@ -24,6 +24,7 @@ Send fake key events in order to display text
 where the cursor is currently located.
 """
 
+from __future__ import print_function
 import time
 import os
 import platform
@@ -157,7 +158,7 @@ def send_unicode(unistr):
     except (OSError, NotImplementedError, NameError), e:
         return False
     except e, msg:
-        print "send_unicode", e, msg
+        print("send_unicode", e, msg)
         return False
 
 if __name__ == "__main__":
