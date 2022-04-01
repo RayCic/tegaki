@@ -19,7 +19,7 @@ def getversion():
 def pkg_config(package, option):
     sub = subprocess.Popen(["pkg-config",option,package],
                            stdout=subprocess.PIPE)
-    spaces = re.compile('\s+',re.DOTALL)
+    spaces = re.compile(b'\s+',re.DOTALL)
     args = spaces.split(sub.stdout.read().strip())
     sub.stdout.close()
     sub.wait()
