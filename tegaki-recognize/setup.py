@@ -55,15 +55,13 @@ class install(installbase):
         return txt.replace("@PREFIX", self._getprefix())       
 
     def _getprefix(self):
-        try:
-            # >= 2.6
-            if self.prefix_option is None:
-                return "/usr/local"
-            else:
+        if hasattr(self,"prefix"):
+            if self.prefix is not None:
+                return self.prefix
+        if hasattr(self,"prefix_option"):
+            if self.prefix_option is not None:
                 return self.prefix_option
-        except AttributeError:
-            # < 2.6
-            return self.prefix
+        return "/usr/local"
 
 # Please run
 # python setup.py install   
