@@ -219,7 +219,7 @@ class Recognizer(Engine):
         model_name must exist for that recognizer.
         """
         if not model_name in self.__class__.get_available_models():
-            raise RecognizerError, "Model does not exist"
+            raise RecognizerError("Model does not exist")
 
         self._model = model_name
 
@@ -273,7 +273,7 @@ if __name__ == "__main__":
     print("Available recognizers", recognizers)
 
     if not recognizer in recognizers:
-        raise Exception, "Not an available recognizer"
+        raise Exception("Not an available recognizer")
 
     recognizer_klass = recognizers[recognizer]
     recognizer = recognizer_klass()
@@ -282,7 +282,7 @@ if __name__ == "__main__":
     print("Available models", models)
 
     if not model in models:
-        raise Exception, "Not an available model"
+        raise Exception("Not an available model")
 
     recognizer.set_model(model)
 

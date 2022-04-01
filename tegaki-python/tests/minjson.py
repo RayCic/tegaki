@@ -300,7 +300,7 @@ def safeRead(aString, encoding=None):
     try:
         data = JSONReader(s).output()
     except SyntaxError:
-        raise ReadException, 'Unacceptable JSON expression: %s' % aString
+        raise ReadException('Unacceptable JSON expression: %s' % aString)
     return data
 
 read = safeRead
@@ -376,7 +376,7 @@ class JsonWriter(object):
         '''
         if stream is not None:
             if output_encoding is None:
-                raise WriteException, 'If a stream is given, output encoding must also be provided'
+                raise WriteException('If a stream is given, output encoding must also be provided')
         else:
             stream = JsonStream()
         self.stream = stream
@@ -417,7 +417,7 @@ class JsonWriter(object):
             try:
                 obj = str(obj)
             except Exception, exc:
-                raise WriteException, 'Cannot write object (%s: %s)' % (exc.__class__, exc)
+                raise WriteException('Cannot write object (%s: %s)' % (exc.__class__, exc))
             self.stream.write(obj)
         else:
             # convert to unicode first

@@ -112,7 +112,7 @@ class Trainer(Engine):
 
     def _check_meta(self, meta):
         if not meta.has_key("name") or not meta.has_key("shortname"):
-            raise TrainerError, "meta must contain a name and a shortname"
+            raise TrainerError("meta must contain a name and a shortname")
 
     def _write_meta_file(self, meta, meta_file):
         io = StringIO()
