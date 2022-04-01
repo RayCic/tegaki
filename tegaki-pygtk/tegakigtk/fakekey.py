@@ -85,7 +85,7 @@ if os.name == 'nt':
 elif platform.system() == "Darwin":
     def _send_unicode_osx(unistr):
         # TODO: use CGPostKeyboardEvent?
-        raise NotImplementedError
+        raise(NotImplementedError)
 
     _send_unicode = _send_unicode_osx
 
@@ -116,11 +116,11 @@ else:
             Xlib = None
 
         def _send_unicode_x11(unistr):
-            if Xlib is None: raise NameError
+            if Xlib is None: raise(NameError)
 
             dpy = Xlib.XOpenDisplay(None)
 
-            if not dpy: raise OSError # no display
+            if not dpy: raise(OSError) # no display
 
             min_, max_, numcodes = c_int(0), c_int(0), c_int(0)
             Xlib.XDisplayKeycodes(dpy, byref(min_), byref(max_))
@@ -155,9 +155,9 @@ def send_unicode(unistr):
     try:
         _send_unicode(unistr)
         return True
-    except (OSError, NotImplementedError, NameError), e:
+    except (OSError, NotImplementedError, NameError) as e:
         return False
-    except e, msg:
+    except e as msg:
         print("send_unicode", e, msg)
         return False
 

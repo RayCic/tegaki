@@ -469,7 +469,7 @@ class Canvas(gtk.Widget):
 
     def _draw_background_character(self):
         if self._background_character:
-            raise NotImplementedError
+            raise(NotImplementedError)
 
     def _draw_background_writing(self):
         if self._background_writing:

@@ -763,7 +763,7 @@ class PreferenceManager(dict):
 
             try:
                 self["GENERAL"][opt] = meth("GENERAL", opt)
-            except (NoSectionError, NoOptionError, ValueError), e:
+            except (NoSectionError, NoOptionError, ValueError) as e:
                 self["GENERAL"][opt] = dflt
 
     def save(self):
